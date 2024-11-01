@@ -1,4 +1,5 @@
-# SERL: A Software Suite for Sample-Efficient Robotic Reinforcement Learning
+# This is a copy of SERL: A Software Suite for Sample-Efficient Robotic Reinforcement Learning
+## Outside of limited code snippets, this work was performed by RAIL-Berkley. I am bad a github and don't know how to branch and commit to repos...
 
 ![](https://github.com/rail-berkeley/serl/workflows/pre-commit/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

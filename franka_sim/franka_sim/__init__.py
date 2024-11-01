@@ -18,3 +18,8 @@ register(
     max_episode_steps=100,
     kwargs={"image_obs": True},
 )
+register(
+    id="PrinterEnv",
+    entry_point="franka_sim.envs:PrinterGymEnv",
+    max_episode_steps=100,
+)

@@ -5,6 +5,7 @@ import gym
 import mujoco
 import numpy as np
 from gym import spaces
+import jax.numpy as jnp
 
 try:
     import mujoco_py
@@ -294,4 +295,6 @@ if __name__ == "__main__":
     for i in range(100):
         env.step(np.random.uniform(-1, 1, 4))
         env.render()
+    print(jnp.shape(env.observation_space.sample()))
+    print(jnp.shape(env.action_space.sample()))
     env.close()

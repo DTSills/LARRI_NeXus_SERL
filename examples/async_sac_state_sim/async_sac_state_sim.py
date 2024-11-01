@@ -92,7 +92,7 @@ def actor(agent: SACAgent, data_store, env, sampling_rng):
     client.recv_network_callback(update_params)
 
     eval_env = gym.make(FLAGS.env)
-    if FLAGS.env == "PandaPickCube-v0":
+    if FLAGS.env == "PandaPickCube-v0" or "PrinterEnv":
         eval_env = gym.wrappers.FlattenObservation(eval_env)
     eval_env = RecordEpisodeStatistics(eval_env)
 
@@ -228,7 +228,7 @@ def learner(rng, agent: SACAgent, replay_buffer, replay_iterator):
             batch = next(replay_iterator)
 
         with timer.context("train"):
-            agent, update_info = agent.update_high_utd(batch, utd_ratio=FLAGS.utd_ratio)
+            agent, update_info = agent.update_high_utd(batch, utd_ratio=1)
             agent = jax.block_until_ready(agent)
 
             # publish the updated network
@@ -266,7 +266,7 @@ def main(_):
     else:
         env = gym.make(FLAGS.env)
 
-    if FLAGS.env == "PandaPickCube-v0":
+    if FLAGS.env == "PandaPickCube-v0" or "PrinterEnv":
         env = gym.wrappers.FlattenObservation(env)
 
     rng, sampling_rng = jax.random.split(rng)
